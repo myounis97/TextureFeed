@@ -12,27 +12,30 @@ class FeedHeaderNode: BaseNode {
     
     //MARK: - Members
     
-    let feed:Feed
+    private let feed:Feed
     
-    let imageNode:ASNetworkImageNode = {
+    private lazy var imageNode:ASNetworkImageNode = {
         let node = ASNetworkImageNode()
         node.contentMode = .scaleAspectFill
         node.imageModificationBlock = ASImageNodeRoundBorderModificationBlock(0, nil)
         return node
     }()
     
-    let titleNode:ASTextNode = {
+    private lazy var titleNode:ASTextNode = {
         let node = ASTextNode()
+        node.style.flexGrow = 1.0
         return node
     }()
     
-    let interestNode:ASTextNode = {
+    private lazy var interestNode:ASTextNode = {
         let node = ASTextNode()
+        node.style.flexGrow = 1.0
         return node
     }()
     
-    let contentNode:ASTextNode = {
-       let node = ASTextNode()
+    private lazy var contentNode:ASTextNode = {
+        let node = ASTextNode()
+        node.style.flexGrow = 1.0
         node.maximumNumberOfLines = 2
         node.truncationAttributedText = createReadmoreStrig(withSize: 14)
         return node
@@ -68,10 +71,9 @@ class FeedHeaderNode: BaseNode {
         
         let innerVerticalStack = ASStackLayoutSpec.vertical()
         innerVerticalStack.alignItems = .start
+        
         innerVerticalStack.children = [titleNode,interestNode]
-        
         horizontalStack.children = [imageNode,innerVerticalStack]
-        
         verticalStack.children = [horizontalStack,contentNode]
         
         return verticalStack

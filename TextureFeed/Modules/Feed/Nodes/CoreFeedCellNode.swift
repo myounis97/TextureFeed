@@ -22,7 +22,7 @@ class CoreFeedCellNode : BaseCellNode {
     }()
     
     //MARK: - Initialization
-
+    
     init(feed:Feed,body:ASLayoutElement) {
         self.feed = feed
         self.body = body
@@ -34,7 +34,13 @@ class CoreFeedCellNode : BaseCellNode {
         let verticalStack = ASStackLayoutSpec.vertical()
         verticalStack.alignItems = .start
         verticalStack.spacing = 10
-        verticalStack.children = [header,body]
+        verticalStack.children = [
+            ASInsetLayoutSpec(
+                insets: UIEdgeInsets(top: 8, left: 16, bottom: 0, right: 16),
+                child:  header
+            ),
+            body
+        ]
         return ASInsetLayoutSpec(insets: .zero, child: verticalStack)
     }
     

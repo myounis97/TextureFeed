@@ -19,15 +19,18 @@ class FeedAttachmentsNode : BaseNode {
         self.feed = feed
         flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .horizontal
+        flowLayout.minimumInteritemSpacing = 0.0
+        flowLayout.minimumLineSpacing = 0.0
         collectionNode = ASCollectionNode(collectionViewLayout: flowLayout)
         super.init()
         collectionNode.isPagingEnabled = true
+        collectionNode.showsHorizontalScrollIndicator = false
         collectionNode.delegate = self
         collectionNode.dataSource = self
     }
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
-        return ASRatioLayoutSpec(ratio: 16 / 9, child: collectionNode)
+        return ASRatioLayoutSpec(ratio: 1, child: collectionNode)
     }
     
     private func getCellFor(attachment:Attachment) -> BaseCellNode {

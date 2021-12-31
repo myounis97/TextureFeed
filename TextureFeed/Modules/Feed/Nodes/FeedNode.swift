@@ -49,15 +49,11 @@ extension FeedNode: ASTableDelegate,ASTableDataSource {
         
       // this may be executed on a background thread - it is important to make sure it is thread safe
       let cellNodeBlock = { () -> ASCellNode in
-        let cellNode = feed.type == .NORMAL ? FeedCell(feed: feed) : SharedFeedCell(feed: feed)
+        let cellNode = feed.type == .NORMAL ? FeedCellNode(feed: feed) : SharedFeedCellNode(feed: feed)
         return cellNode
       }
         
       return cellNodeBlock
     }
     
-    func tableNode(_ tableNode: ASTableNode, constrainedSizeForRowAt indexPath: IndexPath) -> ASSizeRange {
-        let width = UIScreen.main.bounds.width
-        return .init(min: .zero, max: .init(width: width, height:100))
-    }
 }

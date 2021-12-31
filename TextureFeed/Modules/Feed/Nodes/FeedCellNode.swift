@@ -34,6 +34,6 @@ class FeedCellNode : BaseCellNode {
     }
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
-        return ASInsetLayoutSpec(insets: UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16), child: core)
+        return ASInsetLayoutSpec(insets: .zero, child: core)
     }
 }

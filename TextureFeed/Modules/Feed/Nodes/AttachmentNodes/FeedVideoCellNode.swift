@@ -15,6 +15,7 @@ class FeedVideoCellNode:BaseCellNode {
         let node = ASVideoNode()
         node.shouldAutoplay = true
         node.shouldAutorepeat = true
+        node.backgroundColor = .gray
         return node
     }()
     

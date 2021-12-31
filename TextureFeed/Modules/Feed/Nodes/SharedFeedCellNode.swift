@@ -34,14 +34,22 @@ class SharedFeedCellNode:BaseCellNode {
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
         let verticalStack = ASStackLayoutSpec.vertical()
-        verticalStack.children = [header,body]
-        return ASInsetLayoutSpec(
-            insets: UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16),
+        verticalStack.children = [
+            ASInsetLayoutSpec(
+                insets: UIEdgeInsets(top: 4, left: 32, bottom: 4, right: 32),
+                child: header
+            ),
+            body
+        ]
+        let background = ASDisplayNode()
+        background.backgroundColor = UIColor(named: "ogColor")
+        return ASInsetLayoutSpec.init(
+            insets: .zero,
             child: CoreFeedCellNode(
                 feed: feed,
-                body: ASInsetLayoutSpec(
-                    insets: UIEdgeInsets(top: 11, left: 23, bottom: 4, right: 23),
-                    child: verticalStack
+                body: ASBackgroundLayoutSpec(
+                    child: verticalStack,
+                    background: background
                 )
             )
         )

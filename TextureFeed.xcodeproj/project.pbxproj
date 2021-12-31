@@ -8,22 +8,57 @@
 
 /* Begin PBXBuildFile section */
 		BA762978277E72CC00FC5632 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA762977277E72CC00FC5632 /* AppDelegate.swift */; };
-		BA76297A277E72CC00FC5632 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA762979277E72CC00FC5632 /* SceneDelegate.swift */; };
-		BA76297C277E72CC00FC5632 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA76297B277E72CC00FC5632 /* ViewController.swift */; };
-		BA76297F277E72CC00FC5632 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA76297D277E72CC00FC5632 /* Main.storyboard */; };
+		BA76297C277E72CC00FC5632 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA76297B277E72CC00FC5632 /* FeedViewController.swift */; };
 		BA762981277E72CD00FC5632 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA762980277E72CD00FC5632 /* Assets.xcassets */; };
-		BA762984277E72CD00FC5632 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA762982277E72CD00FC5632 /* LaunchScreen.storyboard */; };
+		BA76298F277E751400FC5632 /* BaseNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA76298E277E751400FC5632 /* BaseNode.swift */; };
+		BA762991277E754300FC5632 /* BaseCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA762990277E754300FC5632 /* BaseCellNode.swift */; };
+		BA762993277E7A1300FC5632 /* FeedNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA762992277E7A1300FC5632 /* FeedNode.swift */; };
+		BA762995277E845300FC5632 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA762994277E845300FC5632 /* LaunchScreen.storyboard */; };
+		BA762998277E84C000FC5632 /* CoreFeedCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA762997277E84C000FC5632 /* CoreFeedCellNode.swift */; };
+		BA76299E277F754400FC5632 /* LoremSwiftum in Frameworks */ = {isa = PBXBuildFile; productRef = BA76299D277F754400FC5632 /* LoremSwiftum */; };
+		BA7629A0277F76BC00FC5632 /* FeedHeaderNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA76299F277F76BC00FC5632 /* FeedHeaderNode.swift */; };
+		BA7629A3277F7E2700FC5632 /* NSAttributedStringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7629A2277F7E2700FC5632 /* NSAttributedStringUtils.swift */; };
+		BA7629A5277F820B00FC5632 /* FeedBodyNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7629A4277F820B00FC5632 /* FeedBodyNode.swift */; };
+		BA7629A7277F824E00FC5632 /* FeedAttachmentsNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7629A6277F824E00FC5632 /* FeedAttachmentsNode.swift */; };
+		BA7629A9277F825C00FC5632 /* FeedOGNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7629A8277F825C00FC5632 /* FeedOGNode.swift */; };
+		BA7629AC277F869100FC5632 /* FeedImageCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7629AB277F869100FC5632 /* FeedImageCellNode.swift */; };
+		BA7629AE277F86AA00FC5632 /* FeedVideoCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7629AD277F86A900FC5632 /* FeedVideoCellNode.swift */; };
+		BA7629B0277F86C100FC5632 /* FeedGifCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7629AF277F86C100FC5632 /* FeedGifCellNode.swift */; };
+		BA7629B2277F86E400FC5632 /* FeedAudioCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7629B1277F86E400FC5632 /* FeedAudioCellNode.swift */; };
+		BA7629B4277F86FD00FC5632 /* FeedYoutubeCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7629B3277F86FD00FC5632 /* FeedYoutubeCellNode.swift */; };
+		BA7629B6277F9C6E00FC5632 /* FeedCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7629B5277F9C6E00FC5632 /* FeedCellNode.swift */; };
+		BA7629B8277F9C8D00FC5632 /* SharedFeedCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7629B7277F9C8D00FC5632 /* SharedFeedCellNode.swift */; };
+		BA7629BC277FA54C00FC5632 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7629BB277FA54C00FC5632 /* Feed.swift */; };
+		DEB6AD19B8BC5A82FA22C83E /* Pods_TextureFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7B34CCB3EAAAE95821988CA /* Pods_TextureFeed.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A7B34CCB3EAAAE95821988CA /* Pods_TextureFeed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TextureFeed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B058071B1451FEACE4A79EF3 /* Pods-TextureFeed.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TextureFeed.release.xcconfig"; path = "Target Support Files/Pods-TextureFeed/Pods-TextureFeed.release.xcconfig"; sourceTree = "<group>"; };
 		BA762974277E72CC00FC5632 /* TextureFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TextureFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA762977277E72CC00FC5632 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BA762979277E72CC00FC5632 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BA76297B277E72CC00FC5632 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		BA76297E277E72CC00FC5632 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BA76297B277E72CC00FC5632 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		BA762980277E72CD00FC5632 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		BA762983277E72CD00FC5632 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BA762985277E72CD00FC5632 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BA76298E277E751400FC5632 /* BaseNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNode.swift; sourceTree = "<group>"; };
+		BA762990277E754300FC5632 /* BaseCellNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCellNode.swift; sourceTree = "<group>"; };
+		BA762992277E7A1300FC5632 /* FeedNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedNode.swift; sourceTree = "<group>"; };
+		BA762994277E845300FC5632 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BA762997277E84C000FC5632 /* CoreFeedCellNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreFeedCellNode.swift; sourceTree = "<group>"; };
+		BA76299F277F76BC00FC5632 /* FeedHeaderNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedHeaderNode.swift; sourceTree = "<group>"; };
+		BA7629A2277F7E2700FC5632 /* NSAttributedStringUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAttributedStringUtils.swift; sourceTree = "<group>"; };
+		BA7629A4277F820B00FC5632 /* FeedBodyNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedBodyNode.swift; sourceTree = "<group>"; };
+		BA7629A6277F824E00FC5632 /* FeedAttachmentsNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedAttachmentsNode.swift; sourceTree = "<group>"; };
+		BA7629A8277F825C00FC5632 /* FeedOGNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedOGNode.swift; sourceTree = "<group>"; };
+		BA7629AB277F869100FC5632 /* FeedImageCellNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageCellNode.swift; sourceTree = "<group>"; };
+		BA7629AD277F86A900FC5632 /* FeedVideoCellNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedVideoCellNode.swift; sourceTree = "<group>"; };
+		BA7629AF277F86C100FC5632 /* FeedGifCellNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedGifCellNode.swift; sourceTree = "<group>"; };
+		BA7629B1277F86E400FC5632 /* FeedAudioCellNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedAudioCellNode.swift; sourceTree = "<group>"; };
+		BA7629B3277F86FD00FC5632 /* FeedYoutubeCellNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedYoutubeCellNode.swift; sourceTree = "<group>"; };
+		BA7629B5277F9C6E00FC5632 /* FeedCellNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCellNode.swift; sourceTree = "<group>"; };
+		BA7629B7277F9C8D00FC5632 /* SharedFeedCellNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedFeedCellNode.swift; sourceTree = "<group>"; };
+		BA7629BB277FA54C00FC5632 /* Feed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
+		EDDCC9E75451476E69494BF1 /* Pods-TextureFeed.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TextureFeed.debug.xcconfig"; path = "Target Support Files/Pods-TextureFeed/Pods-TextureFeed.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +66,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA76299E277F754400FC5632 /* LoremSwiftum in Frameworks */,
+				DEB6AD19B8BC5A82FA22C83E /* Pods_TextureFeed.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		582C8582B58733AD21AD17B3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A7B34CCB3EAAAE95821988CA /* Pods_TextureFeed.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BA76296B277E72CC00FC5632 = {
 			isa = PBXGroup;
 			children = (
 				BA762976277E72CC00FC5632 /* TextureFeed */,
 				BA762975277E72CC00FC5632 /* Products */,
+				E9B0F18B75B605F43BD01EA9 /* Pods */,
+				582C8582B58733AD21AD17B3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +103,103 @@
 		BA762976277E72CC00FC5632 /* TextureFeed */ = {
 			isa = PBXGroup;
 			children = (
-				BA762977277E72CC00FC5632 /* AppDelegate.swift */,
-				BA762979277E72CC00FC5632 /* SceneDelegate.swift */,
-				BA76297B277E72CC00FC5632 /* ViewController.swift */,
-				BA76297D277E72CC00FC5632 /* Main.storyboard */,
+				BA76298B277E73C600FC5632 /* Core */,
+				BA76298D277E750400FC5632 /* Texture */,
+				BA76298C277E749F00FC5632 /* Modules */,
+				BA7629A1277F7E1400FC5632 /* Utils */,
 				BA762980277E72CD00FC5632 /* Assets.xcassets */,
-				BA762982277E72CD00FC5632 /* LaunchScreen.storyboard */,
 				BA762985277E72CD00FC5632 /* Info.plist */,
+				BA762994277E845300FC5632 /* LaunchScreen.storyboard */,
 			);
 			path = TextureFeed;
+			sourceTree = "<group>";
+		};
+		BA76298B277E73C600FC5632 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				BA762977277E72CC00FC5632 /* AppDelegate.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		BA76298C277E749F00FC5632 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				BA762996277E84A600FC5632 /* Feed */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		BA76298D277E750400FC5632 /* Texture */ = {
+			isa = PBXGroup;
+			children = (
+				BA76298E277E751400FC5632 /* BaseNode.swift */,
+				BA762990277E754300FC5632 /* BaseCellNode.swift */,
+			);
+			path = Texture;
+			sourceTree = "<group>";
+		};
+		BA762996277E84A600FC5632 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				BA7629B9277FA4A900FC5632 /* Nodes */,
+				BA76297B277E72CC00FC5632 /* FeedViewController.swift */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
+		BA7629A1277F7E1400FC5632 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				BA7629A2277F7E2700FC5632 /* NSAttributedStringUtils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		BA7629AA277F866700FC5632 /* AttachmentNodes */ = {
+			isa = PBXGroup;
+			children = (
+				BA7629A6277F824E00FC5632 /* FeedAttachmentsNode.swift */,
+				BA7629AB277F869100FC5632 /* FeedImageCellNode.swift */,
+				BA7629AD277F86A900FC5632 /* FeedVideoCellNode.swift */,
+				BA7629AF277F86C100FC5632 /* FeedGifCellNode.swift */,
+				BA7629B1277F86E400FC5632 /* FeedAudioCellNode.swift */,
+				BA7629B3277F86FD00FC5632 /* FeedYoutubeCellNode.swift */,
+			);
+			path = AttachmentNodes;
+			sourceTree = "<group>";
+		};
+		BA7629B9277FA4A900FC5632 /* Nodes */ = {
+			isa = PBXGroup;
+			children = (
+				BA7629BA277FA54C00FC5632 /* Models */,
+				BA7629AA277F866700FC5632 /* AttachmentNodes */,
+				BA7629B7277F9C8D00FC5632 /* SharedFeedCellNode.swift */,
+				BA7629B5277F9C6E00FC5632 /* FeedCellNode.swift */,
+				BA7629A8277F825C00FC5632 /* FeedOGNode.swift */,
+				BA7629A4277F820B00FC5632 /* FeedBodyNode.swift */,
+				BA76299F277F76BC00FC5632 /* FeedHeaderNode.swift */,
+				BA762997277E84C000FC5632 /* CoreFeedCellNode.swift */,
+				BA762992277E7A1300FC5632 /* FeedNode.swift */,
+			);
+			path = Nodes;
+			sourceTree = "<group>";
+		};
+		BA7629BA277FA54C00FC5632 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BA7629BB277FA54C00FC5632 /* Feed.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E9B0F18B75B605F43BD01EA9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EDDCC9E75451476E69494BF1 /* Pods-TextureFeed.debug.xcconfig */,
+				B058071B1451FEACE4A79EF3 /* Pods-TextureFeed.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,15 +209,20 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BA762988277E72CD00FC5632 /* Build configuration list for PBXNativeTarget "TextureFeed" */;
 			buildPhases = (
+				E35D23B536B699AFB0F5450C /* [CP] Check Pods Manifest.lock */,
 				BA762970277E72CC00FC5632 /* Sources */,
 				BA762971277E72CC00FC5632 /* Frameworks */,
 				BA762972277E72CC00FC5632 /* Resources */,
+				D774F5D02BCFF1129A8868CB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = TextureFeed;
+			packageProductDependencies = (
+				BA76299D277F754400FC5632 /* LoremSwiftum */,
+			);
 			productName = TextureFeed;
 			productReference = BA762974277E72CC00FC5632 /* TextureFeed.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +251,9 @@
 				Base,
 			);
 			mainGroup = BA76296B277E72CC00FC5632;
+			packageReferences = (
+				BA76299C277F754400FC5632 /* XCRemoteSwiftPackageReference "LoremSwiftum" */,
+			);
 			productRefGroup = BA762975277E72CC00FC5632 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -125,45 +268,83 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA762984277E72CD00FC5632 /* LaunchScreen.storyboard in Resources */,
 				BA762981277E72CD00FC5632 /* Assets.xcassets in Resources */,
-				BA76297F277E72CC00FC5632 /* Main.storyboard in Resources */,
+				BA762995277E845300FC5632 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D774F5D02BCFF1129A8868CB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TextureFeed/Pods-TextureFeed-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TextureFeed/Pods-TextureFeed-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TextureFeed/Pods-TextureFeed-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E35D23B536B699AFB0F5450C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TextureFeed-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BA762970277E72CC00FC5632 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA76297C277E72CC00FC5632 /* ViewController.swift in Sources */,
+				BA7629A3277F7E2700FC5632 /* NSAttributedStringUtils.swift in Sources */,
+				BA7629A5277F820B00FC5632 /* FeedBodyNode.swift in Sources */,
+				BA762998277E84C000FC5632 /* CoreFeedCellNode.swift in Sources */,
+				BA7629AE277F86AA00FC5632 /* FeedVideoCellNode.swift in Sources */,
+				BA7629A9277F825C00FC5632 /* FeedOGNode.swift in Sources */,
+				BA76297C277E72CC00FC5632 /* FeedViewController.swift in Sources */,
+				BA7629A7277F824E00FC5632 /* FeedAttachmentsNode.swift in Sources */,
+				BA7629A0277F76BC00FC5632 /* FeedHeaderNode.swift in Sources */,
 				BA762978277E72CC00FC5632 /* AppDelegate.swift in Sources */,
-				BA76297A277E72CC00FC5632 /* SceneDelegate.swift in Sources */,
+				BA7629B2277F86E400FC5632 /* FeedAudioCellNode.swift in Sources */,
+				BA762991277E754300FC5632 /* BaseCellNode.swift in Sources */,
+				BA7629B0277F86C100FC5632 /* FeedGifCellNode.swift in Sources */,
+				BA76298F277E751400FC5632 /* BaseNode.swift in Sources */,
+				BA762993277E7A1300FC5632 /* FeedNode.swift in Sources */,
+				BA7629B8277F9C8D00FC5632 /* SharedFeedCellNode.swift in Sources */,
+				BA7629AC277F869100FC5632 /* FeedImageCellNode.swift in Sources */,
+				BA7629B4277F86FD00FC5632 /* FeedYoutubeCellNode.swift in Sources */,
+				BA7629B6277F9C6E00FC5632 /* FeedCellNode.swift in Sources */,
+				BA7629BC277FA54C00FC5632 /* Feed.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		BA76297D277E72CC00FC5632 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BA76297E277E72CC00FC5632 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		BA762982277E72CD00FC5632 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BA762983277E72CD00FC5632 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		BA762986277E72CD00FC5632 /* Debug */ = {
@@ -217,7 +398,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -272,7 +453,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -284,6 +465,7 @@
 		};
 		BA762989277E72CD00FC5632 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EDDCC9E75451476E69494BF1 /* Pods-TextureFeed.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -294,7 +476,6 @@
 				INFOPLIST_FILE = TextureFeed/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -312,6 +493,7 @@
 		};
 		BA76298A277E72CD00FC5632 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B058071B1451FEACE4A79EF3 /* Pods-TextureFeed.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -322,7 +504,6 @@
 				INFOPLIST_FILE = TextureFeed/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -360,6 +541,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		BA76299C277F754400FC5632 /* XCRemoteSwiftPackageReference "LoremSwiftum" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lukaskubanek/LoremSwiftum.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.2.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BA76299D277F754400FC5632 /* LoremSwiftum */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BA76299C277F754400FC5632 /* XCRemoteSwiftPackageReference "LoremSwiftum" */;
+			productName = LoremSwiftum;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BA76296C277E72CC00FC5632 /* Project object */;
 }

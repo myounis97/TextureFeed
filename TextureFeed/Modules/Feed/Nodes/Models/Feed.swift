@@ -99,7 +99,7 @@ func createAttachmentsList() -> [Attachment] {
             listOfAttachments.append(createImageAttachment())
             break
         case .GIF:
-            listOfAttachments.append(createImageAttachment())
+            listOfAttachments.append(createGIFAttachment())
         case.IMAGE:
             listOfAttachments.append(createImageAttachment())
         case.VIDEO:

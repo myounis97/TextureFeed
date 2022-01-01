@@ -46,7 +46,7 @@ class YoutubeNode: BaseNode {
     
     override func didEnterVisibleState() {
         super.didEnterVisibleState()
-        (youtubeNode.view as? YTPlayerView)?.playVideo()
+//        (youtubeNode.view as? YTPlayerView)?.playVideo()
     }
     
     override func didExitVisibleState() {
@@ -72,7 +72,7 @@ extension YoutubeNode : YTPlayerViewDelegate {
             }
             if state == .cued {
                 if self.isVisible {
-                    playerView.playVideo()
+//                    playerView.playVideo()
                 }
             }
         })

@@ -16,7 +16,7 @@ class FeedVideoCellNode:BaseCellNode {
     
     private lazy var videoPlayerNode = { () -> ASVideoPlayerNode in
         let node = ASVideoPlayerNode(url: URL(string: attachment.url)!)
-        node.shouldAutoPlay = true
+        node.shouldAutoPlay = false
         node.shouldAutoRepeat = true
         node.muted = true
         node.controlsDisabled = true

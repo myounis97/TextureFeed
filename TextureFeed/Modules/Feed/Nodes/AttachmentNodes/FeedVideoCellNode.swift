@@ -34,7 +34,7 @@ class FeedVideoCellNode:BaseCellNode {
     }
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
-        return ASRatioLayoutSpec(ratio: 1, child: videoPlayerNode)
+        return ASRatioLayoutSpec(ratio: 0.56, child: videoPlayerNode)
     }
 }
 

@@ -36,6 +36,7 @@
 		BA7629C92780AADE00FC5632 /* controversial.json in Resources */ = {isa = PBXBuildFile; fileRef = BA7629C72780AADE00FC5632 /* controversial.json */; };
 		BA7629CA2780AADE00FC5632 /* popular.json in Resources */ = {isa = PBXBuildFile; fileRef = BA7629C82780AADE00FC5632 /* popular.json */; };
 		BA7629CD2780C10E00FC5632 /* CAGradientLayerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7629CC2780C10E00FC5632 /* CAGradientLayerExtensions.swift */; };
+		BA7629D02780C71100FC5632 /* YoutubeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7629CF2780C71100FC5632 /* YoutubeNode.swift */; };
 		DEB6AD19B8BC5A82FA22C83E /* Pods_TextureFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7B34CCB3EAAAE95821988CA /* Pods_TextureFeed.framework */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +73,7 @@
 		BA7629C72780AADE00FC5632 /* controversial.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = controversial.json; path = TextureFeed/Assets/controversial.json; sourceTree = SOURCE_ROOT; };
 		BA7629C82780AADE00FC5632 /* popular.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = popular.json; path = TextureFeed/Assets/popular.json; sourceTree = SOURCE_ROOT; };
 		BA7629CC2780C10E00FC5632 /* CAGradientLayerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAGradientLayerExtensions.swift; sourceTree = "<group>"; };
+		BA7629CF2780C71100FC5632 /* YoutubeNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeNode.swift; sourceTree = "<group>"; };
 		EDDCC9E75451476E69494BF1 /* Pods-TextureFeed.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TextureFeed.debug.xcconfig"; path = "Target Support Files/Pods-TextureFeed/Pods-TextureFeed.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -148,6 +150,7 @@
 		BA76298D277E750400FC5632 /* Texture */ = {
 			isa = PBXGroup;
 			children = (
+				BA7629CE2780C70400FC5632 /* Youtube */,
 				BA7629C32780A94C00FC5632 /* Moderation */,
 				BA76298E277E751400FC5632 /* BaseNode.swift */,
 				BA762990277E754300FC5632 /* BaseCellNode.swift */,
@@ -236,6 +239,14 @@
 				BA7629C82780AADE00FC5632 /* popular.json */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		BA7629CE2780C70400FC5632 /* Youtube */ = {
+			isa = PBXGroup;
+			children = (
+				BA7629CF2780C71100FC5632 /* YoutubeNode.swift */,
+			);
+			path = Youtube;
 			sourceTree = "<group>";
 		};
 		E9B0F18B75B605F43BD01EA9 /* Pods */ = {
@@ -392,6 +403,7 @@
 				BA7629C0277FB85200FC5632 /* ReactionsNode.swift in Sources */,
 				BA7629B4277F86FD00FC5632 /* FeedYoutubeCellNode.swift in Sources */,
 				BA7629B6277F9C6E00FC5632 /* FeedCellNode.swift in Sources */,
+				BA7629D02780C71100FC5632 /* YoutubeNode.swift in Sources */,
 				BA7629BC277FA54C00FC5632 /* Feed.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

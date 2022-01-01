@@ -28,6 +28,6 @@ class FeedGifCellNode:BaseCellNode {
     }
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
-        return ASInsetLayoutSpec(insets: .zero, child: imageNode)
+        return ASRatioLayoutSpec(ratio: 0.56, child: imageNode)
     }
 }

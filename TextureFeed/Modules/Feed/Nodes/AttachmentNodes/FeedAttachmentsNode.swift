@@ -40,12 +40,20 @@ class FeedAttachmentsNode : BaseNode {
     }
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
+                
+        let width: CGFloat = constrainedSize.max.width
+        let height = width * 9 / 16
+        collectionNode.style.preferredSize = CGSize(width: width, height: height)
+        
+        if feed.attachments?.first?.type == .YOUTUBE {
+            return ASWrapperLayoutSpec(layoutElement: collectionNode)
+        }
         
         let popularOverlay = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 12, left: 12, bottom: 0, right: 0), child: popular)
         
         let overlaySpec = ASOverlayLayoutSpec(child: collectionNode, overlay: ASAbsoluteLayoutSpec(children: [popularOverlay]))
         
-        return ASRatioLayoutSpec(ratio: 1, child: overlaySpec)
+        return ASWrapperLayoutSpec(layoutElement: overlaySpec)
     }
     
     private func getCellFor(attachment:Attachment) -> BaseCellNode {

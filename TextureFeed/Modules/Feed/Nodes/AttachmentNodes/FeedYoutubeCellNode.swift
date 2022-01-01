@@ -14,8 +14,8 @@ class FeedYoutubeCellNode:BaseCellNode {
     
     private let attachment:Attachment
     
-    private lazy var baseNode : BaseNode = {
-        let node = BaseNode()
+    private lazy var youtubeNode : YoutubeNode = {
+        let node = YoutubeNode(attachment: attachment)
         return node
     }()
     
@@ -27,6 +27,6 @@ class FeedYoutubeCellNode:BaseCellNode {
     }
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
-        return ASInsetLayoutSpec(insets: .zero, child: baseNode)
+        return ASRatioLayoutSpec(ratio: 0.56, child: youtubeNode)
     }
 }

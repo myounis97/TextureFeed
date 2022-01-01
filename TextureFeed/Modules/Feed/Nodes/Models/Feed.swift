@@ -103,13 +103,12 @@ func createAttachmentsList() -> [Attachment] {
         case.IMAGE:
             listOfAttachments.append(createImageAttachment())
         case.VIDEO:
-            listOfAttachments.append(createImageAttachment())
+            listOfAttachments.append(createVideoAttachment())
         case.YOUTUBE:
             if n > 0 {
                 break outer
             }
-//            listOfAttachments.append(createYoutubeAttachment())
-            listOfAttachments.append(createImageAttachment())
+            listOfAttachments.append(createYoutubeAttachment())
             break outer
         }
         
@@ -175,9 +174,10 @@ fileprivate func createGIFAttachment() -> Attachment {
 }
 
 fileprivate func createYoutubeAttachment() -> Attachment {
+    let index = Int.random(in: 0..<listyoutube.count)
     return Attachment(
         id: UUID.init(), type: AttachmentType.YOUTUBE,
-        url: "https://www.youtube.com/watch?v=vMePycN3k18",
+        url: listyoutube[index],
         thumb: "https://picsum.photos/\(Int.random(in: 480...720))"
     )
 }
@@ -197,7 +197,16 @@ fileprivate var listvideo:[String] = [
 fileprivate var listgif:[String] = [
     "https://i.gifer.com/5IPv.gif",
     "https://i.gifer.com/YNXo.gif",
-    "https://i.gifer.com/V5NL.gif"
+    "https://i.gifer.com/V5NL.gif",
+    "https://i.gifer.com/31Kl.gif",
+    "https://i.gifer.com/td5.gif"
+]
+
+fileprivate var listyoutube:[String] = [
+    "Wj1yyGQmW2c",
+    "8joSb3BQsFw",
+    "T-LAJ0Y7lsw",
+    "b4KfgMFp0nU"
 ]
 
 extension Feed {
@@ -214,6 +223,21 @@ extension Feed {
             NSAttributedString.Key.font: UIFont.systemFont(ofSize: size)
         ]
         return NSAttributedString(string: interest, attributes: attributes)
+    }
+    func attributedStringForOGTitle(withSize size:CGFloat) -> NSAttributedString {
+        let attributes = [
+            NSAttributedString.Key.foregroundColor : UIColor.black,
+            NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: size)
+        ]
+        return NSAttributedString(string: og?.title ?? "", attributes: attributes)
+    }
+    
+    func attributedStringForOGDescription(withSize size:CGFloat) -> NSAttributedString {
+        let attributes = [
+            NSAttributedString.Key.foregroundColor : UIColor.darkGray,
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: size)
+        ]
+        return NSAttributedString(string: og?.description ?? "", attributes: attributes)
     }
     func attributedStringForContent(withSize size:CGFloat) -> NSAttributedString {
 //        let paragraphStyle = NSMutableParagraphStyle()

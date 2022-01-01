@@ -34,6 +34,40 @@ class FeedNode: BaseNode {
         return ASInsetLayoutSpec(insets: .zero, child: self.table)
     }
  
+    func checkWhichVideoToEnable() {
+        for cell in table.visibleNodes {
+           
+            if cell is FeedCellNode || cell is SharedFeedCellNode {
+                
+                guard let indexPath = table.indexPath(for: cell) else {
+                    continue
+                }
+                
+                
+                let feed = myfeeds[indexPath.row]
+                
+                guard feed.contentType == .ATTACHMENTS else {
+                    continue
+                }
+                
+                let cellRect: CGRect = table.rectForRow(at: indexPath)
+                let superview = table.supernode
+
+                let convertedRect = table.convert(cellRect, to: superview)
+                let intersect = table.frame.intersection(convertedRect)
+                let visibleHeight = intersect.height
+                
+                let visiblePercentage = visibleHeight / cellRect.height
+
+                print("Visible height : \(visiblePercentage)")
+                if visiblePercentage > 0.6 {
+                    
+                } else {
+                    
+                }
+            }
+        }
+    }
 }
 
 //MARK: - ASTableDelegate
@@ -59,5 +93,7 @@ extension FeedNode: ASTableDelegate,ASTableDataSource {
         
       return cellNodeBlock
     }
-    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        checkWhichVideoToEnable()
+    }
 }

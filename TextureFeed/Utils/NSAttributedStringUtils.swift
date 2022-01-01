@@ -9,7 +9,7 @@ import UIKit
 
 func createReadmoreStrig(withSize size:CGFloat) -> NSAttributedString {
     let attributes = [
-        NSAttributedString.Key.foregroundColor : UIColor.blue,
+        NSAttributedString.Key.foregroundColor : UIColor.systemBlue,
         NSAttributedString.Key.font: UIFont.systemFont(ofSize: size),
     ]
     return NSAttributedString(string: "...Readmore", attributes: attributes)

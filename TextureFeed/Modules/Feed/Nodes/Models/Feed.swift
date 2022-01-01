@@ -122,14 +122,14 @@ fileprivate func createFeed() -> Feed {
     
     let shared = Bool.random()
     
-    return Feed(id: UUID.init(), title: Lorem.fullName, interest: "Personal", content: Lorem.words(10...20),
+    return Feed(id: UUID.init(), title: Lorem.fullName, interest: "Personal", content: Lorem.tweet,
                 time: "Yesterday", attachments: createAttachmentsList(), og: createOG(), sharedFeed: createSharedFeed(),
                 type: shared ? .SHARED : .NORMAL, imageUrl: URL(string: "https://picsum.photos/\(Int.random(in: 200...300))")!)
     
 }
 
 fileprivate func createSharedFeed() -> Feed {
-    return Feed(id: UUID.init(), title: Lorem.fullName, interest: "Personal", content: Lorem.words(10...20), time: "Yesterday", attachments: createAttachmentsList(), og: createOG(), sharedFeed: nil, type: .NORMAL, imageUrl: URL(string: "https://picsum.photos/\(Int.random(in: 200...300))")!)
+    return Feed(id: UUID.init(), title: Lorem.fullName, interest: "Personal", content: "#abstract #art #abstractart #envywear #PleaseForgiveMe #abstracters_anonymous #abstract_buff #abstraction #instagood #creative #artsy #beautiful #photooftheday #abstracto #stayabstract #instaabstract", time: "Yesterday", attachments: createAttachmentsList(), og: createOG(), sharedFeed: nil, type: .NORMAL, imageUrl: URL(string: "https://picsum.photos/\(Int.random(in: 200...300))")!)
 }
 
 fileprivate func createImageAttachment() -> Attachment {
@@ -240,14 +240,26 @@ extension Feed {
         return NSAttributedString(string: og?.description ?? "", attributes: attributes)
     }
     func attributedStringForContent(withSize size:CGFloat) -> NSAttributedString {
-//        let paragraphStyle = NSMutableParagraphStyle()
-//        paragraphStyle.lineSpacing = 4.0
+        
         let attributes = [
             NSAttributedString.Key.foregroundColor : UIColor.darkGray,
             NSAttributedString.Key.font: UIFont.systemFont(ofSize: size),
-//            NSAttributedString.Key.paragraphStyle: paragraphStyle
         ]
-        return NSAttributedString(string: content, attributes: attributes)
+        
+        let attrStr = NSMutableAttributedString(string: content)
+        attrStr.addAttributes(attributes, range: NSRange(location: 0, length: attrStr.string.count))
+        
+        let searchPattern = "#\\w+"
+        var ranges: [NSRange] = [NSRange]()
+
+        let regex = try! NSRegularExpression(pattern: searchPattern, options: [])
+        ranges = regex.matches(in: attrStr.string, options: [], range: NSMakeRange(0, attrStr.string.count)).map {$0.range}
+
+        for range in ranges {
+            attrStr.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.systemBlue, range: NSRange(location: range.location, length: range.length))
+        }
+
+        return attrStr
     }
     
     func attributedStringForDate(withSize size:CGFloat) -> NSAttributedString {

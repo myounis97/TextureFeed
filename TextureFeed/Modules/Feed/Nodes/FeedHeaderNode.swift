@@ -36,7 +36,7 @@ class FeedHeaderNode: BaseNode {
     private lazy var contentNode:ASTextNode = {
         let node = ASTextNode()
         node.style.flexGrow = 1.0
-        node.maximumNumberOfLines = 2
+        node.maximumNumberOfLines = 3
         node.truncationAttributedText = createReadmoreStrig(withSize: 14)
         return node
     }()

@@ -45,31 +45,12 @@ class FeedFooterNode:BaseCellNode {
         return node
     }()
     
-    private let flameNode = ASDisplayNode { () -> UIView in
-        let lottieAnimation = AnimationView(name: "popular")
-        lottieAnimation.contentMode = .scaleAspectFit
-        lottieAnimation.loopMode = .loop
-        lottieAnimation.backgroundColor = .clear
-        return lottieAnimation
-    }
-    
     //MARK: - Initialization
     
     init(feed:Feed) {
         self.feed = feed
         super.init()
         dateNode.attributedText = feed.attributedStringForDate(withSize: 12)
-        flameNode.style.preferredSize = CGSize(width: 30, height: 30)
-    }
-    
-    override func didEnterVisibleState() {
-        super.didEnterVisibleState()
-        (flameNode.view as? AnimationView)?.play(completion: nil)
-    }
-    
-    override func didExitVisibleState() {
-        super.didExitVisibleState()
-        (flameNode.view as? AnimationView)?.stop()
     }
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
@@ -85,7 +66,7 @@ class FeedFooterNode:BaseCellNode {
         horizontalStack.alignItems = .center
         
         horizontalStack.children = [
-            commentButton,favoriteButton,flameNode,spacer,shareButton
+            commentButton,favoriteButton,spacer,shareButton
         ]
         
         verticalStack.children = [

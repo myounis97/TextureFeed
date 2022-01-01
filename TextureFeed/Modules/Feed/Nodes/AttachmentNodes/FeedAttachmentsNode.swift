@@ -18,6 +18,11 @@ class FeedAttachmentsNode : BaseNode {
     
     private let collectionNode:ASCollectionNode
     
+    private lazy var popular : PopularNode = {
+        let node = PopularNode()
+        return node
+    }()
+    
     //MARK: - Initialization
 
     init(feed:Feed) {
@@ -35,7 +40,12 @@ class FeedAttachmentsNode : BaseNode {
     }
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
-        return ASRatioLayoutSpec(ratio: 1, child: collectionNode)
+        
+        let popularOverlay = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 12, left: 12, bottom: 0, right: 0), child: popular)
+        
+        let overlaySpec = ASOverlayLayoutSpec(child: collectionNode, overlay: ASAbsoluteLayoutSpec(children: [popularOverlay]))
+        
+        return ASRatioLayoutSpec(ratio: 1, child: overlaySpec)
     }
     
     private func getCellFor(attachment:Attachment) -> BaseCellNode {

@@ -14,3 +14,11 @@ func createReadmoreStrig(withSize size:CGFloat) -> NSAttributedString {
     ]
     return NSAttributedString(string: "...Readmore", attributes: attributes)
 }
+
+func createPopularStrig(withSize size:CGFloat) -> NSAttributedString {
+    let attributes = [
+        NSAttributedString.Key.foregroundColor : UIColor.white,
+        NSAttributedString.Key.font: UIFont.systemFont(ofSize: size, weight: .medium)
+    ]
+    return NSAttributedString(string: "Popular", attributes: attributes)
+}

@@ -32,6 +32,9 @@
 		BA7629BE277FB02800FC5632 /* FeedFooterNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7629BD277FB02800FC5632 /* FeedFooterNode.swift */; };
 		BA7629C0277FB85200FC5632 /* ReactionsNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7629BF277FB85200FC5632 /* ReactionsNode.swift */; };
 		BA7629C2277FC1CA00FC5632 /* UHVideoNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7629C1277FC1CA00FC5632 /* UHVideoNode.swift */; };
+		BA7629C62780A96500FC5632 /* PopularNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7629C52780A96500FC5632 /* PopularNode.swift */; };
+		BA7629C92780AADE00FC5632 /* controversial.json in Resources */ = {isa = PBXBuildFile; fileRef = BA7629C72780AADE00FC5632 /* controversial.json */; };
+		BA7629CA2780AADE00FC5632 /* popular.json in Resources */ = {isa = PBXBuildFile; fileRef = BA7629C82780AADE00FC5632 /* popular.json */; };
 		DEB6AD19B8BC5A82FA22C83E /* Pods_TextureFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7B34CCB3EAAAE95821988CA /* Pods_TextureFeed.framework */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +67,9 @@
 		BA7629BD277FB02800FC5632 /* FeedFooterNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedFooterNode.swift; sourceTree = "<group>"; };
 		BA7629BF277FB85200FC5632 /* ReactionsNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactionsNode.swift; sourceTree = "<group>"; };
 		BA7629C1277FC1CA00FC5632 /* UHVideoNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UHVideoNode.swift; sourceTree = "<group>"; };
+		BA7629C52780A96500FC5632 /* PopularNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularNode.swift; sourceTree = "<group>"; };
+		BA7629C72780AADE00FC5632 /* controversial.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = controversial.json; path = TextureFeed/Assets/controversial.json; sourceTree = SOURCE_ROOT; };
+		BA7629C82780AADE00FC5632 /* popular.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = popular.json; path = TextureFeed/Assets/popular.json; sourceTree = SOURCE_ROOT; };
 		EDDCC9E75451476E69494BF1 /* Pods-TextureFeed.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TextureFeed.debug.xcconfig"; path = "Target Support Files/Pods-TextureFeed/Pods-TextureFeed.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -113,6 +119,7 @@
 				BA76298D277E750400FC5632 /* Texture */,
 				BA76298C277E749F00FC5632 /* Modules */,
 				BA7629A1277F7E1400FC5632 /* Utils */,
+				BA7629CB2780AAE700FC5632 /* Assets */,
 				BA762980277E72CD00FC5632 /* Assets.xcassets */,
 				BA762985277E72CD00FC5632 /* Info.plist */,
 				BA762994277E845300FC5632 /* LaunchScreen.storyboard */,
@@ -139,6 +146,7 @@
 		BA76298D277E750400FC5632 /* Texture */ = {
 			isa = PBXGroup;
 			children = (
+				BA7629C32780A94C00FC5632 /* Moderation */,
 				BA76298E277E751400FC5632 /* BaseNode.swift */,
 				BA762990277E754300FC5632 /* BaseCellNode.swift */,
 				BA7629C1277FC1CA00FC5632 /* UHVideoNode.swift */,
@@ -200,6 +208,31 @@
 				BA7629BB277FA54C00FC5632 /* Feed.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		BA7629C32780A94C00FC5632 /* Moderation */ = {
+			isa = PBXGroup;
+			children = (
+				BA7629C42780A95400FC5632 /* PopularNode */,
+			);
+			path = Moderation;
+			sourceTree = "<group>";
+		};
+		BA7629C42780A95400FC5632 /* PopularNode */ = {
+			isa = PBXGroup;
+			children = (
+				BA7629C52780A96500FC5632 /* PopularNode.swift */,
+			);
+			path = PopularNode;
+			sourceTree = "<group>";
+		};
+		BA7629CB2780AAE700FC5632 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				BA7629C72780AADE00FC5632 /* controversial.json */,
+				BA7629C82780AADE00FC5632 /* popular.json */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 		E9B0F18B75B605F43BD01EA9 /* Pods */ = {
@@ -278,7 +311,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA762981277E72CD00FC5632 /* Assets.xcassets in Resources */,
+				BA7629C92780AADE00FC5632 /* controversial.json in Resources */,
 				BA762995277E845300FC5632 /* LaunchScreen.storyboard in Resources */,
+				BA7629CA2780AADE00FC5632 /* popular.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,6 +384,7 @@
 				BA762993277E7A1300FC5632 /* FeedNode.swift in Sources */,
 				BA7629B8277F9C8D00FC5632 /* SharedFeedCellNode.swift in Sources */,
 				BA7629AC277F869100FC5632 /* FeedImageCellNode.swift in Sources */,
+				BA7629C62780A96500FC5632 /* PopularNode.swift in Sources */,
 				BA7629C0277FB85200FC5632 /* ReactionsNode.swift in Sources */,
 				BA7629B4277F86FD00FC5632 /* FeedYoutubeCellNode.swift in Sources */,
 				BA7629B6277F9C6E00FC5632 /* FeedCellNode.swift in Sources */,

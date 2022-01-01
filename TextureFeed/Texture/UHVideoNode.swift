@@ -15,10 +15,10 @@ class UHVideoNode:BaseNode {
     private let ratio: CGFloat
     private let videoGravity: AVLayerVideoGravity
     
-    private lazy var videoNode = { () -> ASVideoNode in
-        let node = ASVideoNode()
-        node.shouldAutoplay = true
-        node.shouldAutorepeat = true
+    private lazy var videoNode = { () -> ASVideoPlayerNode in
+        let node = ASVideoPlayerNode()
+        node.shouldAutoPlay = true
+        node.shouldAutoRepeat = true
         node.muted = true
         node.gravity = videoGravity.rawValue
         return node
@@ -37,12 +37,17 @@ class UHVideoNode:BaseNode {
         return ASRatioLayoutSpec(ratio: self.ratio, child: self.videoNode)
     }
     
+    func setThumb(_ url:URL) {
+        self.videoNode.videoNode.url = url
+    }
+    
     func setVideoAsset(_ url: URL) {
         let asset = AVAsset(url: url)
-        asset.loadValuesAsynchronously(forKeys: ["playable"], completionHandler: {
-            DispatchQueue.main.async {
+        asset.loadValuesAsynchronously(forKeys: ["playable"], completionHandler: {[weak self] in
+            guard let self = self else { return }
+            DispatchQueue.main.async {[weak self] in
                 asset.cancelLoading()
-                self.videoNode.asset = asset
+                self?.videoNode.asset = asset
             }
         })
     }

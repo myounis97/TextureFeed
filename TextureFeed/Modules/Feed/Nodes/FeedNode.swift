@@ -21,13 +21,28 @@ class FeedNode: BaseNode {
         return node
     }()
     
-    private let myfeeds = feeds
+    private var myfeeds:[Feed] = []
     
     //MARK: - Initialization
     
     override init() {
         super.init()
         backgroundColor = .white
+    }
+    
+    override func didLoad() {
+        super.didLoad()
+        getFeeds()
+    }
+    
+    private func getFeeds()  {
+        DispatchQueue.global(qos: .default).async {
+            let feeds = createFeedsList()
+            DispatchQueue.main.async {
+                self.myfeeds = feeds
+                self.table.reloadData()
+            }
+        }
     }
 
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
@@ -68,6 +83,23 @@ class FeedNode: BaseNode {
             }
         }
     }
+    
+    private func fetchNewBatchWithContext(_ context: ASBatchContext?) {
+        DispatchQueue.global(qos: .default).async {
+            let feeds = createFeedsList()
+            self.myfeeds.append(contentsOf: feeds)
+            self.addRowsIntoTableNode(newFeedCount: feeds.count)
+            context?.completeBatchFetching(true)
+        }
+    }
+    
+    private func addRowsIntoTableNode(newFeedCount newFeeds: Int) {
+        let indexRange = (myfeeds.count - newFeeds..<myfeeds.count)
+        let indexPaths = indexRange.map { IndexPath(row: $0, section: 0) }
+        DispatchQueue.main.async {
+            self.table.insertRows(at: indexPaths, with: .none)
+        }
+    }
 }
 
 //MARK: - ASTableDelegate
@@ -93,6 +125,15 @@ extension FeedNode: ASTableDelegate,ASTableDataSource {
         
       return cellNodeBlock
     }
+    
+    func shouldBatchFetchForCollectionNode(collectionNode: ASCollectionNode) -> Bool {
+        return true
+    }
+    
+    func tableNode(_ tableNode: ASTableNode, willBeginBatchFetchWith context: ASBatchContext) {
+        fetchNewBatchWithContext(context)
+    }
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         checkWhichVideoToEnable()
     }

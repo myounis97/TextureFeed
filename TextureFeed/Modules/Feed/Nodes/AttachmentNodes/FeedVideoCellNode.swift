@@ -14,8 +14,14 @@ class FeedVideoCellNode:BaseCellNode {
     
     private let attachment:Attachment
     
-    private lazy var videoNode: UHVideoNode = {
-        let node = UHVideoNode(ratio: 1, videoGravity: .resizeAspectFill)
+    private lazy var videoPlayerNode = { () -> ASVideoPlayerNode in
+        let node = ASVideoPlayerNode(url: URL(string: attachment.url)!)
+        node.shouldAutoPlay = true
+        node.shouldAutoRepeat = true
+        node.muted = true
+        node.controlsDisabled = true
+        node.delegate = self
+        node.gravity = AVLayerVideoGravity.resizeAspectFill.rawValue
         return node
     }()
     
@@ -24,10 +30,16 @@ class FeedVideoCellNode:BaseCellNode {
     init(attachment:Attachment) {
         self.attachment = attachment
         super.init()
-        videoNode.setVideoAsset(URL(string: attachment.url)!)
+        videoPlayerNode.videoNode.url = URL(string: attachment.thumb)!
     }
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
-        return ASRatioLayoutSpec(ratio: 1, child: videoNode)
+        return ASRatioLayoutSpec(ratio: 1, child: videoPlayerNode)
+    }
+}
+
+extension FeedVideoCellNode : ASVideoPlayerNodeDelegate {
+    func didTap(_ videoPlayer: ASVideoPlayerNode) {
+        
     }
 }

@@ -71,12 +71,12 @@ struct OG {
     let image: String
 }
 
-let feeds:[Feed] = createFeedsList()
+//let feeds:[Feed] = createFeedsList()
 
 func createFeedsList() -> [Feed] {
     var feeds:[Feed] = []
     
-    for _ in 0...1000 {
+    for _ in 0...3 {
         feeds.append(createFeed())
     }
     
@@ -87,7 +87,7 @@ func createAttachmentsList() -> [Attachment] {
     
     var listOfAttachments:[Attachment] = []
     
-    outer:for n in 0...Int.random(in: 0...50) {
+    outer:for n in 0...Int.random(in: 0...4) {
         
         switch AttachmentType.allCases[Int.random(in: 0..<AttachmentType.allCases.count)] {
         
@@ -99,8 +99,7 @@ func createAttachmentsList() -> [Attachment] {
             listOfAttachments.append(createImageAttachment())
             break
         case .GIF:
-//            listOfAttachments.append(createGIFAttachment())
-            listOfAttachments.append(createImageAttachment())
+            listOfAttachments.append(createGIFAttachment())
         case.IMAGE:
             listOfAttachments.append(createImageAttachment())
         case.VIDEO:
@@ -167,10 +166,10 @@ fileprivate func createAudioAttachment() -> Attachment {
 }
 
 fileprivate func createGIFAttachment() -> Attachment {
-    let index = Int.random(in: 0..<listvideo.count)
+    let index = Int.random(in: 0..<listgif.count)
     return Attachment(
         id: UUID.init(), type: AttachmentType.GIF,
-        url: listvideo[index],
+        url: listgif[index],
         thumb: "https://picsum.photos/\(Int.random(in: 480...720))"
     )
 }
@@ -195,6 +194,11 @@ fileprivate var listvideo:[String] = [
     "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4"
 ]
 
+fileprivate var listgif:[String] = [
+    "https://i.gifer.com/5IPv.gif",
+    "https://i.gifer.com/YNXo.gif",
+    "https://i.gifer.com/V5NL.gif"
+]
 
 extension Feed {
     func attributedStringForTitle(withSize size:CGFloat) -> NSAttributedString {
@@ -212,12 +216,12 @@ extension Feed {
         return NSAttributedString(string: interest, attributes: attributes)
     }
     func attributedStringForContent(withSize size:CGFloat) -> NSAttributedString {
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineSpacing = 4.0
+//        let paragraphStyle = NSMutableParagraphStyle()
+//        paragraphStyle.lineSpacing = 4.0
         let attributes = [
             NSAttributedString.Key.foregroundColor : UIColor.darkGray,
             NSAttributedString.Key.font: UIFont.systemFont(ofSize: size),
-            NSAttributedString.Key.paragraphStyle: paragraphStyle
+//            NSAttributedString.Key.paragraphStyle: paragraphStyle
         ]
         return NSAttributedString(string: content, attributes: attributes)
     }

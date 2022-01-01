@@ -24,6 +24,7 @@ class FeedGifCellNode:BaseCellNode {
     init(attachment:Attachment) {
         self.attachment = attachment
         super.init()
+        imageNode.url = URL(string: attachment.url)
     }
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {

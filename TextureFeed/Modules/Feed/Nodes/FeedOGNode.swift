@@ -9,8 +9,13 @@ import Foundation
 import AsyncDisplayKit
 
 class FeedOGNode:BaseNode {
-    let feed:Feed
     
+    //MARK: - Members
+    
+    private let feed:Feed
+    
+    //MARK: - Initialization
+
     init(feed:Feed) {
         self.feed = feed
         super.init()

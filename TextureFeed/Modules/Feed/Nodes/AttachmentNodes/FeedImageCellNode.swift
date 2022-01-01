@@ -9,14 +9,19 @@ import Foundation
 import AsyncDisplayKit
 
 class FeedImageCellNode: BaseCellNode {
-    let attachment:Attachment
     
-    let imageNode:ASNetworkImageNode = {
+    //MARK: - Members
+    
+    private let attachment:Attachment
+    
+    private lazy var imageNode:ASNetworkImageNode = {
         let node = ASNetworkImageNode()
         node.contentMode = .scaleAspectFill
         return node
     }()
     
+    //MARK: - Initialization
+
     init(attachment:Attachment) {
         self.attachment = attachment
         super.init()

@@ -9,24 +9,22 @@ import Foundation
 import AsyncDisplayKit
 
 class FeedVideoCellNode:BaseCellNode {
-    let attachment:Attachment
     
-    let videoNode: ASVideoNode = {
-        let node = ASVideoNode()
-        node.shouldAutoplay = true
-        node.shouldAutorepeat = true
-        node.backgroundColor = .gray
+    //MARK: - Members
+    
+    private let attachment:Attachment
+    
+    private lazy var videoNode: UHVideoNode = {
+        let node = UHVideoNode(ratio: 1, videoGravity: .resizeAspectFill)
         return node
     }()
     
-    let asset:AVAsset
-    
+    //MARK: - Initialization
+        
     init(attachment:Attachment) {
         self.attachment = attachment
-        self.asset = AVAsset(url: URL(string: attachment.url)!)
         super.init()
-        videoNode.url = URL(string: attachment.thumb)!
-//        videoNode.asset = asset
+        videoNode.setVideoAsset(URL(string: attachment.url)!)
     }
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {

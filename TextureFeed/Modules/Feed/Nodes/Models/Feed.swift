@@ -150,10 +150,10 @@ fileprivate func createOG() -> OG {
 }
 
 fileprivate func createVideoAttachment() -> Attachment {
-//    let index = Int.random(in: 0..<listvideo.count)
+    let index = Int.random(in: 0..<listvideo.count)
     return Attachment(
         id: UUID.init(), type: AttachmentType.VIDEO,
-        url: listvideo[0],
+        url: listvideo[index],
         thumb: "https://picsum.photos/\(Int.random(in: 480...720))"
     )
 }
@@ -185,14 +185,14 @@ fileprivate func createYoutubeAttachment() -> Attachment {
 
 fileprivate var listvideo:[String] = [
     "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-//    "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
-//    "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
-//    "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
-//    "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
-//    "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
-//    "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4",
-//    "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4",
-//    "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4"
+    "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+    "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+    "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+    "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
+    "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+    "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4",
+    "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4",
+    "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4"
 ]
 
 
@@ -212,13 +212,21 @@ extension Feed {
         return NSAttributedString(string: interest, attributes: attributes)
     }
     func attributedStringForContent(withSize size:CGFloat) -> NSAttributedString {
-//        let paragraphStyle = NSMutableParagraphStyle()
-//        paragraphStyle.lineSpacing = 4.0
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = 4.0
         let attributes = [
             NSAttributedString.Key.foregroundColor : UIColor.darkGray,
             NSAttributedString.Key.font: UIFont.systemFont(ofSize: size),
-//            NSAttributedString.Key.paragraphStyle: paragraphStyle
+            NSAttributedString.Key.paragraphStyle: paragraphStyle
         ]
         return NSAttributedString(string: content, attributes: attributes)
+    }
+    
+    func attributedStringForDate(withSize size:CGFloat) -> NSAttributedString {
+        let attributes = [
+            NSAttributedString.Key.foregroundColor : UIColor.darkGray,
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: size)
+        ]
+        return NSAttributedString(string: time, attributes: attributes)
     }
 }

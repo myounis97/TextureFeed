@@ -7,7 +7,7 @@
 
 import AsyncDisplayKit
 
-class FeedViewController: ASDKViewController<BaseNode> {
+class FeedViewController: ASDKViewController<FeedNode> {
     
     //MARK: - Initialization
 

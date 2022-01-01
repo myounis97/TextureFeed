@@ -76,6 +76,8 @@ class FeedHeaderNode: BaseNode {
         horizontalStack.children = [imageNode,innerVerticalStack]
         verticalStack.children = [horizontalStack,contentNode]
         
+        verticalStack.style.preferredLayoutSize = .init(width: .init(unit: .fraction, value: 1), height: .init(unit: .auto, value: 0))
+        
         return verticalStack
         
     }

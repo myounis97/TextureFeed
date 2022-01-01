@@ -12,18 +12,21 @@ class FeedNode: BaseNode {
     
     //MARK: - Members
 
-    private var table:ASTableNode!
+    private lazy var table:ASTableNode = {
+        let node = ASTableNode(style: .plain)
+        node.backgroundColor = .white
+        node.allowsSelection = false
+        node.delegate = self
+        node.dataSource = self
+        return node
+    }()
     
     private let myfeeds = feeds
     
     //MARK: - Initialization
+    
     override init() {
         super.init()
-        table = ASTableNode(style: .plain)
-        table.backgroundColor = .white
-        table.allowsSelection = false
-        table.delegate = self
-        table.dataSource = self
         backgroundColor = .white
     }
 
@@ -33,6 +36,7 @@ class FeedNode: BaseNode {
  
 }
 
+//MARK: - ASTableDelegate
 extension FeedNode: ASTableDelegate,ASTableDataSource {
     func numberOfSections(in tableNode: ASTableNode) -> Int {
         1

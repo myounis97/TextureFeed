@@ -9,12 +9,17 @@ import Foundation
 import AsyncDisplayKit
 
 class FeedYoutubeCellNode:BaseCellNode {
-    let attachment:Attachment
     
-    let baseNode : BaseNode = {
+    //MARK: - Members
+    
+    private let attachment:Attachment
+    
+    private lazy var baseNode : BaseNode = {
         let node = BaseNode()
         return node
     }()
+    
+    //MARK: - Initialization
     
     init(attachment:Attachment) {
         self.attachment = attachment

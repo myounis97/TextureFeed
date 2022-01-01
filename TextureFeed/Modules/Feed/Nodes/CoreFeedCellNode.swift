@@ -21,6 +21,11 @@ class CoreFeedCellNode : BaseCellNode {
         return node
     }()
     
+    private lazy var footer : FeedFooterNode = {
+        let node = FeedFooterNode(feed: feed)
+        return node
+    }()
+    
     //MARK: - Initialization
     
     init(feed:Feed,body:ASLayoutElement) {
@@ -39,7 +44,11 @@ class CoreFeedCellNode : BaseCellNode {
                 insets: UIEdgeInsets(top: 8, left: 16, bottom: 0, right: 16),
                 child:  header
             ),
-            body
+            body,
+            ASInsetLayoutSpec(
+                insets: UIEdgeInsets(top: 0, left: 16, bottom: 8, right: 16),
+                child:  footer
+            )
         ]
         return ASInsetLayoutSpec(insets: .zero, child: verticalStack)
     }

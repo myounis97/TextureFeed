@@ -10,12 +10,16 @@ import AsyncDisplayKit
 
 class FeedAudioCellNode:BaseCellNode {
     
-    let attachment:Attachment
+    //MARK: - Members
     
-    let baseNode : BaseNode = {
+    private let attachment:Attachment
+    
+    private lazy var baseNode : BaseNode = {
         let node = BaseNode()
         return node
     }()
+    
+    //MARK: - Initialization
     
     init(attachment:Attachment) {
         self.attachment = attachment

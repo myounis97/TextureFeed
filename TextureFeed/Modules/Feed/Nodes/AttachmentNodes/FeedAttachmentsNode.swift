@@ -9,12 +9,17 @@ import Foundation
 import AsyncDisplayKit
 
 class FeedAttachmentsNode : BaseNode {
-    let feed:Feed
     
-    let flowLayout:UICollectionViewFlowLayout
+    //MARK: - Members
     
-    let collectionNode:ASCollectionNode
+    private let feed:Feed
     
+    private let flowLayout:UICollectionViewFlowLayout
+    
+    private let collectionNode:ASCollectionNode
+    
+    //MARK: - Initialization
+
     init(feed:Feed) {
         self.feed = feed
         flowLayout = UICollectionViewFlowLayout()
@@ -50,6 +55,7 @@ class FeedAttachmentsNode : BaseNode {
     
 }
 
+//MARK: - ASCollectionDelegate
 extension FeedAttachmentsNode: ASCollectionDelegate,ASCollectionDataSource {
     func numberOfSections(in collectionNode: ASCollectionNode) -> Int {
         return 1

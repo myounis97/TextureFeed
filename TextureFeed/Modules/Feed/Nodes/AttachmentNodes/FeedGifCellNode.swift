@@ -12,9 +12,9 @@ class FeedGifCellNode:BaseCellNode {
     
     //MARK: - Members
     
-    let attachment:Attachment
+    private let attachment:Attachment
     
-    let imageNode : ASNetworkImageNode = {
+    private lazy var imageNode : ASNetworkImageNode = {
         let node = ASNetworkImageNode()
         return node
     }()

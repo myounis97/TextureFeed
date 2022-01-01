@@ -29,6 +29,9 @@
 		BA7629B6277F9C6E00FC5632 /* FeedCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7629B5277F9C6E00FC5632 /* FeedCellNode.swift */; };
 		BA7629B8277F9C8D00FC5632 /* SharedFeedCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7629B7277F9C8D00FC5632 /* SharedFeedCellNode.swift */; };
 		BA7629BC277FA54C00FC5632 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7629BB277FA54C00FC5632 /* Feed.swift */; };
+		BA7629BE277FB02800FC5632 /* FeedFooterNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7629BD277FB02800FC5632 /* FeedFooterNode.swift */; };
+		BA7629C0277FB85200FC5632 /* ReactionsNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7629BF277FB85200FC5632 /* ReactionsNode.swift */; };
+		BA7629C2277FC1CA00FC5632 /* UHVideoNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7629C1277FC1CA00FC5632 /* UHVideoNode.swift */; };
 		DEB6AD19B8BC5A82FA22C83E /* Pods_TextureFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7B34CCB3EAAAE95821988CA /* Pods_TextureFeed.framework */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +61,9 @@
 		BA7629B5277F9C6E00FC5632 /* FeedCellNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCellNode.swift; sourceTree = "<group>"; };
 		BA7629B7277F9C8D00FC5632 /* SharedFeedCellNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedFeedCellNode.swift; sourceTree = "<group>"; };
 		BA7629BB277FA54C00FC5632 /* Feed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
+		BA7629BD277FB02800FC5632 /* FeedFooterNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedFooterNode.swift; sourceTree = "<group>"; };
+		BA7629BF277FB85200FC5632 /* ReactionsNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactionsNode.swift; sourceTree = "<group>"; };
+		BA7629C1277FC1CA00FC5632 /* UHVideoNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UHVideoNode.swift; sourceTree = "<group>"; };
 		EDDCC9E75451476E69494BF1 /* Pods-TextureFeed.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TextureFeed.debug.xcconfig"; path = "Target Support Files/Pods-TextureFeed/Pods-TextureFeed.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -135,6 +141,7 @@
 			children = (
 				BA76298E277E751400FC5632 /* BaseNode.swift */,
 				BA762990277E754300FC5632 /* BaseCellNode.swift */,
+				BA7629C1277FC1CA00FC5632 /* UHVideoNode.swift */,
 			);
 			path = Texture;
 			sourceTree = "<group>";
@@ -181,6 +188,8 @@
 				BA76299F277F76BC00FC5632 /* FeedHeaderNode.swift */,
 				BA762997277E84C000FC5632 /* CoreFeedCellNode.swift */,
 				BA762992277E7A1300FC5632 /* FeedNode.swift */,
+				BA7629BD277FB02800FC5632 /* FeedFooterNode.swift */,
+				BA7629BF277FB85200FC5632 /* ReactionsNode.swift */,
 			);
 			path = Nodes;
 			sourceTree = "<group>";
@@ -322,10 +331,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA7629C2277FC1CA00FC5632 /* UHVideoNode.swift in Sources */,
 				BA7629A3277F7E2700FC5632 /* NSAttributedStringUtils.swift in Sources */,
 				BA7629A5277F820B00FC5632 /* FeedBodyNode.swift in Sources */,
 				BA762998277E84C000FC5632 /* CoreFeedCellNode.swift in Sources */,
 				BA7629AE277F86AA00FC5632 /* FeedVideoCellNode.swift in Sources */,
+				BA7629BE277FB02800FC5632 /* FeedFooterNode.swift in Sources */,
 				BA7629A9277F825C00FC5632 /* FeedOGNode.swift in Sources */,
 				BA76297C277E72CC00FC5632 /* FeedViewController.swift in Sources */,
 				BA7629A7277F824E00FC5632 /* FeedAttachmentsNode.swift in Sources */,
@@ -338,6 +349,7 @@
 				BA762993277E7A1300FC5632 /* FeedNode.swift in Sources */,
 				BA7629B8277F9C8D00FC5632 /* SharedFeedCellNode.swift in Sources */,
 				BA7629AC277F869100FC5632 /* FeedImageCellNode.swift in Sources */,
+				BA7629C0277FB85200FC5632 /* ReactionsNode.swift in Sources */,
 				BA7629B4277F86FD00FC5632 /* FeedYoutubeCellNode.swift in Sources */,
 				BA7629B6277F9C6E00FC5632 /* FeedCellNode.swift in Sources */,
 				BA7629BC277FA54C00FC5632 /* Feed.swift in Sources */,

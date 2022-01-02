@@ -106,14 +106,14 @@ extension FeedAttachmentsNode: PlayableNode {
     }
     
     func getPlayableRect(to node :ASDisplayNode) -> CGRect? {
-        if let cell = collectionNode.visibleNodes.first(where: { node in
-            if let indexPath = node.indexPath, let attachment = feed.attachments?[indexPath.row],
-               attachment.type == .VIDEO || attachment.type == .YOUTUBE {
-                return true
+        if let node = collectionNode.visibleNodes.first {
+            guard let indexPath = node.indexPath,
+                  let attachment = feed.attachments?[indexPath.row],
+                  attachment.type == .VIDEO || attachment.type == .YOUTUBE
+            else {
+                return nil
             }
-            return false
-        }) {
-            return collectionNode.convert(cell.frame, to: nil)
+            return collectionNode.convert(node.frame, to: nil)
         }
         return nil
     }

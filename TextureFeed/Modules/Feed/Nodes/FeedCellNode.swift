@@ -37,3 +37,13 @@ class FeedCellNode : BaseCellNode {
         return ASInsetLayoutSpec(insets: .zero, child: core)
     }
 }
+
+extension FeedCellNode: PlayableNode {
+    func getPlayableCell() -> PlayableCell? {
+        return body.getPlayableCell()
+    }
+
+    func getPlayableRect(to node :ASDisplayNode) -> CGRect? {
+        return body.getPlayableRect(to: node)
+    }
+}

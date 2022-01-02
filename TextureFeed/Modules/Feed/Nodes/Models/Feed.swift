@@ -18,9 +18,10 @@ class Feed {
     var og: OG?
     var sharedFeed: Feed?
     var type: FeedType = FeedType.NORMAL
-    var contentType: FeedContent = FeedContent.allCases[Int.random(in: 0..<FeedContent.allCases.count)]
+//    FeedContent = FeedContent.allCases[Int.random(in: 0..<FeedContent.allCases.count)]
+    var contentType:FeedContent = .ATTACHMENTS
     var imageUrl:URL
-    
+    var hasPlayable:Bool = false
     init(id:UUID,title:String,interest:String,content:String,time:String,attachments:[Attachment]?,og:OG?,sharedFeed:Feed?,type:FeedType,imageUrl:URL) {
         
         self.id = id
@@ -33,7 +34,13 @@ class Feed {
         self.sharedFeed = sharedFeed
         self.type = type
         self.imageUrl = imageUrl
-        
+        checkHasPlayableMedia()
+    }
+    
+    func checkHasPlayableMedia() {
+        hasPlayable = (attachments?.first(where: { attachment in
+            attachment.type == .VIDEO
+        }) != nil)
     }
     
 }
@@ -87,7 +94,7 @@ func createAttachmentsList() -> [Attachment] {
     
     var listOfAttachments:[Attachment] = []
     
-    outer:for n in 0...Int.random(in: 0...4) {
+    outer:for n in 0...Int.random(in: 0..<1) {
         
         switch AttachmentType.allCases[Int.random(in: 0..<AttachmentType.allCases.count)] {
         
@@ -96,19 +103,19 @@ func createAttachmentsList() -> [Attachment] {
                 break outer
             }
 //            listOfAttachments.append(createAudioAttachment())
-            listOfAttachments.append(createImageAttachment())
+            listOfAttachments.append(createVideoAttachment())
             break
         case .GIF:
-            listOfAttachments.append(createGIFAttachment())
+            listOfAttachments.append(createVideoAttachment())
         case.IMAGE:
-            listOfAttachments.append(createImageAttachment())
+            listOfAttachments.append(createVideoAttachment())
         case.VIDEO:
             listOfAttachments.append(createVideoAttachment())
         case.YOUTUBE:
             if n > 0 {
                 break outer
             }
-            listOfAttachments.append(createYoutubeAttachment())
+            listOfAttachments.append(createVideoAttachment())
             break outer
         }
         
@@ -122,9 +129,19 @@ fileprivate func createFeed() -> Feed {
     
     let shared = Bool.random()
     
-    return Feed(id: UUID.init(), title: Lorem.fullName, interest: "Personal", content: Lorem.tweet,
-                time: "Yesterday", attachments: createAttachmentsList(), og: createOG(), sharedFeed: createSharedFeed(),
-                type: shared ? .SHARED : .NORMAL, imageUrl: URL(string: "https://picsum.photos/\(Int.random(in: 200...300))")!)
+    return Feed(
+        id: UUID.init(),
+        title: Lorem.fullName,
+        interest: "Personal",
+        content: Lorem.tweet,
+        time: "Yesterday",
+        attachments: createAttachmentsList(),
+        og: createOG(),
+        sharedFeed: createSharedFeed(),
+        type: shared ? .SHARED : .NORMAL,
+        imageUrl: URL(string: "https://picsum.photos/\(Int.random(in: 200...300))")!
+    )
+    
     
 }
 

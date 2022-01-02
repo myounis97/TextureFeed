@@ -23,6 +23,8 @@ class FeedNode: BaseNode {
     
     private var myfeeds:[Feed] = []
     
+    private var lastPlayableCell:PlayableCell? = nil
+    
     //MARK: - Initialization
     
     override init() {
@@ -48,39 +50,52 @@ class FeedNode: BaseNode {
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
         return ASInsetLayoutSpec(insets: .zero, child: self.table)
     }
+    
+    private func findVisiblityPercentage(to rect:CGRect) -> CGFloat {
+        let superview = table.supernode
+        var convertedRect = table.convert(rect, to: superview)
+        convertedRect = convertedRect.offsetBy(dx: table.contentOffset.x, dy: table.contentOffset.y);
+        let intersect = table.frame.intersection(convertedRect)
+        let visibleHeight = intersect.height
+        let visiblePercentage = visibleHeight / rect.height
+        print("Visible height : \(visiblePercentage)")
+        return visiblePercentage
+    }
  
-    func checkWhichVideoToEnable() {
-        for cell in table.visibleNodes {
-           
-            if cell is FeedCellNode || cell is SharedFeedCellNode {
-                
-                guard let indexPath = table.indexPath(for: cell) else {
-                    continue
-                }
-                
-                
-                let feed = myfeeds[indexPath.row]
-                
-                guard feed.contentType == .ATTACHMENTS else {
-                    continue
-                }
-                
-                let cellRect: CGRect = table.rectForRow(at: indexPath)
-                let superview = table.supernode
+    private func findPlayableCell() -> PlayableCell? {
+        
+        var firstPlayableCell:PlayableCell? = nil
+        
+        for node in table.visibleNodes {
+            
+            guard let playableNode = node as? PlayableNode,
+                  let playableCell = playableNode.getPlayableCell(),
+                  let rect = playableNode.getPlayableRect(to: table)
+            else { continue }
+            
+            let visibilityPercentage = findVisiblityPercentage(to: rect)
 
-                let convertedRect = table.convert(cellRect, to: superview)
-                let intersect = table.frame.intersection(convertedRect)
-                let visibleHeight = intersect.height
-                
-                let visiblePercentage = visibleHeight / cellRect.height
-
-                print("Visible height : \(visiblePercentage)")
-                if visiblePercentage > 0.6 {
-                    
-                } else {
-                    
+            if visibilityPercentage > 0.6 {
+                if firstPlayableCell == nil {
+                    firstPlayableCell = playableCell
                 }
+            } else {
+                playableCell.pause()
             }
+        }
+    
+        return firstPlayableCell
+    }
+    
+    func checkWhichVideoToPlay() {
+        if let playableCell = self.findPlayableCell() {
+            guard playableCell.id() != self.lastPlayableCell?.id() else {
+                playableCell.play()
+                return
+            }
+            self.lastPlayableCell?.pause()
+            self.lastPlayableCell = playableCell
+            self.lastPlayableCell?.play()
         }
     }
     
@@ -88,16 +103,17 @@ class FeedNode: BaseNode {
         DispatchQueue.global(qos: .default).async {
             let feeds = createFeedsList()
             self.myfeeds.append(contentsOf: feeds)
-            self.addRowsIntoTableNode(newFeedCount: feeds.count)
-            context?.completeBatchFetching(true)
+            print("Feeds Count : \(self.myfeeds.count)")
+            self.addRowsIntoTableNode(newFeedCount: feeds.count,context: context)
         }
     }
     
-    private func addRowsIntoTableNode(newFeedCount newFeeds: Int) {
+    private func addRowsIntoTableNode(newFeedCount newFeeds: Int,context: ASBatchContext?) {
         let indexRange = (myfeeds.count - newFeeds..<myfeeds.count)
         let indexPaths = indexRange.map { IndexPath(row: $0, section: 0) }
         DispatchQueue.main.async {
             self.table.insertRows(at: indexPaths, with: .none)
+            context?.completeBatchFetching(true)
         }
     }
 }
@@ -135,6 +151,6 @@ extension FeedNode: ASTableDelegate,ASTableDataSource {
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        checkWhichVideoToEnable()
+        checkWhichVideoToPlay()
     }
 }

@@ -24,7 +24,7 @@ class YoutubeNode: BaseNode {
     }()
     
     //MARK: - Initialization
-
+    
     init(attachment:Attachment) {
         self.attachment = attachment
         super.init()
@@ -36,7 +36,7 @@ class YoutubeNode: BaseNode {
     }
     
     private func load(withVideoId id:String) {
-        (youtubeNode.view as? YTPlayerView)?.load(withVideoId: id, playerVars: ["playsinline": "1"])
+        //        (youtubeNode.view as? YTPlayerView)?.load(withVideoId: id, playerVars: ["playsinline": "1"])
     }
     
     override func didEnterPreloadState() {
@@ -46,16 +46,25 @@ class YoutubeNode: BaseNode {
     
     override func didEnterVisibleState() {
         super.didEnterVisibleState()
-//        (youtubeNode.view as? YTPlayerView)?.playVideo()
+        
     }
     
     override func didExitVisibleState() {
         super.didExitVisibleState()
-        (youtubeNode.view as? YTPlayerView)?.pauseVideo()
+        pause()
     }
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
         return ASRatioLayoutSpec(ratio: 1, child: youtubeNode)
+    }
+    
+    func play() {
+        (youtubeNode.view as? YTPlayerView)?.playVideo()
+    }
+    
+    func pause() {
+        (youtubeNode.view as? YTPlayerView)?.pauseVideo()
+        
     }
     
 }
@@ -64,7 +73,7 @@ extension YoutubeNode : YTPlayerViewDelegate {
     func playerViewPreferredWebViewBackgroundColor(_ playerView: YTPlayerView) -> UIColor {
         .black
     }
-
+    
     func playerViewDidBecomeReady(_ playerView: YTPlayerView) {
         playerView.playerState({[weak self] state, error in
             guard error == nil, let self = self else {
@@ -72,7 +81,7 @@ extension YoutubeNode : YTPlayerViewDelegate {
             }
             if state == .cued {
                 if self.isVisible {
-//                    playerView.playVideo()
+                    //                    playerView.playVideo()
                 }
             }
         })

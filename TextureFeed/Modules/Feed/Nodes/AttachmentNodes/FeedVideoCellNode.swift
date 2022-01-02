@@ -21,6 +21,7 @@ class FeedVideoCellNode:BaseCellNode {
         node.muted = true
         node.controlsDisabled = true
         node.delegate = self
+        node.placeholderImageURL = URL(string: attachment.thumb)!
         node.gravity = AVLayerVideoGravity.resizeAspectFill.rawValue
         return node
     }()
@@ -30,16 +31,35 @@ class FeedVideoCellNode:BaseCellNode {
     init(attachment:Attachment) {
         self.attachment = attachment
         super.init()
-        videoPlayerNode.videoNode.url = URL(string: attachment.thumb)!
     }
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
         return ASRatioLayoutSpec(ratio: 0.56, child: videoPlayerNode)
+    }
+    
+    override func didExitVisibleState() {
+        super.didExitVisibleState()
+        pause()
     }
 }
 
 extension FeedVideoCellNode : ASVideoPlayerNodeDelegate {
     func didTap(_ videoPlayer: ASVideoPlayerNode) {
         
+    }
+}
+
+extension FeedVideoCellNode: PlayableCell {
+    
+    func id() -> String {
+        return "\(attachment.id)"
+    }
+    
+    func play() {
+        videoPlayerNode.play()
+    }
+    
+    func pause() {
+        videoPlayerNode.pause()
     }
 }

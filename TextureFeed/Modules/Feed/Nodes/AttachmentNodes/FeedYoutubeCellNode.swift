@@ -30,3 +30,17 @@ class FeedYoutubeCellNode:BaseCellNode {
         return ASRatioLayoutSpec(ratio: 0.56, child: youtubeNode)
     }
 }
+
+extension FeedYoutubeCellNode: PlayableCell {
+    func id() -> String {
+        return "\(attachment.id)"
+    }
+    
+    func play() {
+        youtubeNode.play()
+    }
+    
+    func pause() {
+        youtubeNode.pause()
+    }
+}

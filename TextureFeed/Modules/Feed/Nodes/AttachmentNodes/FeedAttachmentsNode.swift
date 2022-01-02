@@ -24,7 +24,7 @@ class FeedAttachmentsNode : BaseNode {
     }()
     
     //MARK: - Initialization
-
+    
     init(feed:Feed) {
         self.feed = feed
         flowLayout = UICollectionViewFlowLayout()
@@ -40,7 +40,7 @@ class FeedAttachmentsNode : BaseNode {
     }
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
-                
+        
         let width: CGFloat = constrainedSize.max.width
         let height = width * 9 / 16
         collectionNode.style.preferredSize = CGSize(width: width, height: height)
@@ -75,9 +75,11 @@ class FeedAttachmentsNode : BaseNode {
 
 //MARK: - ASCollectionDelegate
 extension FeedAttachmentsNode: ASCollectionDelegate,ASCollectionDataSource {
+    
     func numberOfSections(in collectionNode: ASCollectionNode) -> Int {
         return 1
     }
+    
     func collectionNode(_ collectionNode: ASCollectionNode, numberOfItemsInSection section: Int) -> Int {
         return feed.attachments?.count ?? 0
     }
@@ -91,4 +93,28 @@ extension FeedAttachmentsNode: ASCollectionDelegate,ASCollectionDataSource {
         return cellNodeBlock
     }
     
+}
+
+extension FeedAttachmentsNode: PlayableNode {
+    func getPlayableCell() -> PlayableCell? {
+        if let cell = collectionNode.visibleNodes.first, cell is PlayableCell {
+            if let indexPath = cell.indexPath, let attachment = feed.attachments?[indexPath.row] {
+                return attachment.type == .VIDEO || attachment.type == .YOUTUBE ? (cell as! PlayableCell) : nil 
+            }
+        }
+        return nil
+    }
+    
+    func getPlayableRect(to node :ASDisplayNode) -> CGRect? {
+        if let cell = collectionNode.visibleNodes.first(where: { node in
+            if let indexPath = node.indexPath, let attachment = feed.attachments?[indexPath.row],
+               attachment.type == .VIDEO || attachment.type == .YOUTUBE {
+                return true
+            }
+            return false
+        }) {
+            return collectionNode.convert(cell.frame, to: nil)
+        }
+        return nil
+    }
 }

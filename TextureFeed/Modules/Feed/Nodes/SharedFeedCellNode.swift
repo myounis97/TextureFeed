@@ -55,3 +55,15 @@ class SharedFeedCellNode:BaseCellNode {
         )
     }
 }
+
+extension SharedFeedCellNode : PlayableNode {
+    func getPlayableCell() -> PlayableCell? {
+        body.getPlayableCell()
+    }
+    
+    func getPlayableRect(to node :ASDisplayNode) -> CGRect? {
+        body.getPlayableRect(to: node)
+    }
+    
+    
+}

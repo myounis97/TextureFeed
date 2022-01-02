@@ -14,6 +14,11 @@ class FeedBodyNode:BaseNode {
     
     private let feed:Feed
     
+    private lazy var attachmentNode:FeedAttachmentsNode = {
+        let node = FeedAttachmentsNode(feed: feed)
+        return node
+    }()
+    
     //MARK: - Initialization
 
     init(feed:Feed) {
@@ -23,9 +28,25 @@ class FeedBodyNode:BaseNode {
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
         let node = feed.contentType == FeedContent.ATTACHMENTS ?
-        FeedAttachmentsNode(feed: feed)
+            attachmentNode
         : feed.contentType == FeedContent.OG ?
         FeedOGNode(feed: feed) : BaseNode()
         return ASInsetLayoutSpec(insets: .zero, child: node)
+    }
+}
+
+extension FeedBodyNode: PlayableNode {
+    func getPlayableCell() -> PlayableCell? {
+        guard feed.contentType == .ATTACHMENTS else {
+            return nil
+        }
+        return attachmentNode.getPlayableCell()
+    }
+    
+    func getPlayableRect(to node :ASDisplayNode) -> CGRect? {
+        guard feed.contentType == .ATTACHMENTS else {
+            return nil
+        }
+        return attachmentNode.getPlayableRect(to: node)
     }
 }

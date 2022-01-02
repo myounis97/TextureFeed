@@ -37,6 +37,7 @@
 		BA7629CA2780AADE00FC5632 /* popular.json in Resources */ = {isa = PBXBuildFile; fileRef = BA7629C82780AADE00FC5632 /* popular.json */; };
 		BA7629CD2780C10E00FC5632 /* CAGradientLayerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7629CC2780C10E00FC5632 /* CAGradientLayerExtensions.swift */; };
 		BA7629D02780C71100FC5632 /* YoutubeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7629CF2780C71100FC5632 /* YoutubeNode.swift */; };
+		BA7629D22781B34F00FC5632 /* PlayableNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7629D12781B34F00FC5632 /* PlayableNode.swift */; };
 		DEB6AD19B8BC5A82FA22C83E /* Pods_TextureFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7B34CCB3EAAAE95821988CA /* Pods_TextureFeed.framework */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +75,7 @@
 		BA7629C82780AADE00FC5632 /* popular.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = popular.json; path = TextureFeed/Assets/popular.json; sourceTree = SOURCE_ROOT; };
 		BA7629CC2780C10E00FC5632 /* CAGradientLayerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAGradientLayerExtensions.swift; sourceTree = "<group>"; };
 		BA7629CF2780C71100FC5632 /* YoutubeNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeNode.swift; sourceTree = "<group>"; };
+		BA7629D12781B34F00FC5632 /* PlayableNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayableNode.swift; sourceTree = "<group>"; };
 		EDDCC9E75451476E69494BF1 /* Pods-TextureFeed.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TextureFeed.debug.xcconfig"; path = "Target Support Files/Pods-TextureFeed/Pods-TextureFeed.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -204,6 +206,7 @@
 				BA762992277E7A1300FC5632 /* FeedNode.swift */,
 				BA7629BD277FB02800FC5632 /* FeedFooterNode.swift */,
 				BA7629BF277FB85200FC5632 /* ReactionsNode.swift */,
+				BA7629D12781B34F00FC5632 /* PlayableNode.swift */,
 			);
 			path = Nodes;
 			sourceTree = "<group>";
@@ -384,6 +387,7 @@
 				BA7629A3277F7E2700FC5632 /* NSAttributedStringUtils.swift in Sources */,
 				BA7629A5277F820B00FC5632 /* FeedBodyNode.swift in Sources */,
 				BA762998277E84C000FC5632 /* CoreFeedCellNode.swift in Sources */,
+				BA7629D22781B34F00FC5632 /* PlayableNode.swift in Sources */,
 				BA7629AE277F86AA00FC5632 /* FeedVideoCellNode.swift in Sources */,
 				BA7629BE277FB02800FC5632 /* FeedFooterNode.swift in Sources */,
 				BA7629A9277F825C00FC5632 /* FeedOGNode.swift in Sources */,
@@ -542,6 +546,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -551,7 +556,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -570,6 +575,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -579,7 +585,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

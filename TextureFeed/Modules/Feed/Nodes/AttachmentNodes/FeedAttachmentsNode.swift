@@ -97,22 +97,15 @@ extension FeedAttachmentsNode: ASCollectionDelegate,ASCollectionDataSource {
 
 extension FeedAttachmentsNode: PlayableNode {
     func getPlayableCell() -> PlayableCell? {
-        if let cell = collectionNode.visibleNodes.first, cell is PlayableCell {
-            if let indexPath = cell.indexPath, let attachment = feed.attachments?[indexPath.row] {
-                return attachment.type == .VIDEO || attachment.type == .YOUTUBE ? (cell as! PlayableCell) : nil 
-            }
+        if let node = collectionNode.visibleNodes.first {
+            return node is PlayableCell ? (node as! PlayableCell) : nil
         }
         return nil
     }
     
     func getPlayableRect(to node :ASDisplayNode) -> CGRect? {
         if let node = collectionNode.visibleNodes.first {
-            guard let indexPath = node.indexPath,
-                  let attachment = feed.attachments?[indexPath.row],
-                  attachment.type == .VIDEO || attachment.type == .YOUTUBE
-            else {
-                return nil
-            }
+            guard node is PlayableCell else { return nil }
             return collectionNode.convert(node.frame, to: nil)
         }
         return nil

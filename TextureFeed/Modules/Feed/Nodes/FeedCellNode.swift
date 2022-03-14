@@ -43,7 +43,8 @@ extension FeedCellNode: PlayableNode {
         return body.getPlayableCell()
     }
 
-    func getPlayableRect(to node :ASDisplayNode) -> CGRect? {
-        return body.getPlayableRect(to: node)
+    func getPlayableRect(to node :UIView) -> CGRect? {
+        print("Supernode :\(String(describing: view.superview))")
+        return self.view.convert(body.getPlayableRect(to: self.view)!, to: node)
     }
 }

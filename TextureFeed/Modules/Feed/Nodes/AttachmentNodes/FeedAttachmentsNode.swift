@@ -103,9 +103,9 @@ extension FeedAttachmentsNode: PlayableNode {
         return nil
     }
     
-    func getPlayableRect(to node :ASDisplayNode) -> CGRect? {
-        if let node = collectionNode.visibleNodes.first {
-            return node is PlayableCell ? collectionNode.convert(node.frame, to: nil) : nil
+    func getPlayableRect(to node :UIView) -> CGRect? {
+        if let cellNode = collectionNode.visibleNodes.first {
+            return cellNode is PlayableCell ? self.view.convert(view.bounds, to: node) : nil
         }
         return nil
     }

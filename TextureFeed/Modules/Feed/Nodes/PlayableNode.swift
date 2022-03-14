@@ -10,7 +10,7 @@ import AsyncDisplayKit
 
 protocol PlayableNode {
     func getPlayableCell() -> PlayableCell?
-    func getPlayableRect(to node:ASDisplayNode) -> CGRect?
+    func getPlayableRect(to node:UIView) -> CGRect?
 }
 
 protocol PlayableCell {

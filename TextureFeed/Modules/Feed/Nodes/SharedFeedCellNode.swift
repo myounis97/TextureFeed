@@ -61,8 +61,9 @@ extension SharedFeedCellNode : PlayableNode {
         body.getPlayableCell()
     }
     
-    func getPlayableRect(to node :ASDisplayNode) -> CGRect? {
-        body.getPlayableRect(to: node)
+    func getPlayableRect(to node :UIView) -> CGRect? {
+        print("Supernode :\(String(describing: supernode))")
+        return self.view.convert(body.getPlayableRect(to: self.view)!, to: node)
     }
     
     

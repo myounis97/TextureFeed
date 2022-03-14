@@ -43,10 +43,10 @@ extension FeedBodyNode: PlayableNode {
         return attachmentNode.getPlayableCell()
     }
     
-    func getPlayableRect(to node :ASDisplayNode) -> CGRect? {
+    func getPlayableRect(to node :UIView) -> CGRect? {
         guard feed.contentType == .ATTACHMENTS else {
             return nil
         }
-        return attachmentNode.getPlayableRect(to: node)
+        return self.view.convert(attachmentNode.getPlayableRect(to: self.view)!, to:node)
     }
 }

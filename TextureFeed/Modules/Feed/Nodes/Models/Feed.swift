@@ -103,19 +103,19 @@ func createAttachmentsList() -> [Attachment] {
                 break outer
             }
 //            listOfAttachments.append(createAudioAttachment())
-            listOfAttachments.append(createVideoAttachment())
+            listOfAttachments.append(createImageAttachment())
             break
         case .GIF:
-            listOfAttachments.append(createVideoAttachment())
+            listOfAttachments.append(createGIFAttachment())
         case.IMAGE:
-            listOfAttachments.append(createVideoAttachment())
+            listOfAttachments.append(createImageAttachment())
         case.VIDEO:
             listOfAttachments.append(createVideoAttachment())
         case.YOUTUBE:
             if n > 0 {
                 break outer
             }
-            listOfAttachments.append(createVideoAttachment())
+            listOfAttachments.append(createImageAttachment())
             break outer
         }
         

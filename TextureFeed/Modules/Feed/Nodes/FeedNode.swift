@@ -34,17 +34,6 @@ class FeedNode: BaseNode {
     
     override func didLoad() {
         super.didLoad()
-        getFeeds()
-    }
-    
-    private func getFeeds()  {
-        DispatchQueue.global(qos: .default).async {
-            let feeds = createFeedsList()
-            DispatchQueue.main.async {
-                self.myfeeds = feeds
-                self.table.reloadData()
-            }
-        }
     }
 
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
@@ -52,10 +41,8 @@ class FeedNode: BaseNode {
     }
     
     private func findVisiblityPercentage(to rect:CGRect) -> CGFloat {
-        let superview = table.supernode
-        var convertedRect = table.convert(rect, to: superview)
-        convertedRect = convertedRect.offsetBy(dx: table.contentOffset.x, dy: table.contentOffset.y);
-        let intersect = table.frame.intersection(convertedRect)
+        let convertedRect = table.view.convert(rect, to: self.view)
+        let intersect = table.view.frame.intersection(convertedRect)
         let visibleHeight = intersect.height
         let visiblePercentage = visibleHeight / rect.height
         print("Visible height : \(visiblePercentage)")
@@ -70,7 +57,7 @@ class FeedNode: BaseNode {
             
             guard let playableNode = node as? PlayableNode,
                   let playableCell = playableNode.getPlayableCell(),
-                  let rect = playableNode.getPlayableRect(to: table)
+                  let rect = playableNode.getPlayableRect(to: table.view)
             else { continue }
             
             let visibilityPercentage = findVisiblityPercentage(to: rect)
